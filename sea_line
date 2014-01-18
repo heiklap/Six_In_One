@@ -1,10 +1,9 @@
+Very simple dart program, using only functions.  I did just Forget classes. Positional parameters
+and functions calling functions in o0ther parts.  
+Boolean test value, when using test module. 
+So, Dart library privacy is only about/for ( _thisIsPrivate )   private    variables, i suppose..
 
-
-
-
-
-
-
+----------------------------------------------------------------------------------------------
 //    sea_line.dart  
 //    18.1.2014  Heikki Lappalainen, simple dart example
 //               using functions, parameters and small test script
