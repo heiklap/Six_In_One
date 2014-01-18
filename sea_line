@@ -1,0 +1,167 @@
+
+
+
+
+
+
+
+//    sea_line.dart  
+//    18.1.2014  Heikki Lappalainen, simple dart example
+//               using functions, parameters and small test script
+
+library sea_line; 
+
+part 'sea.dart';
+part 'ship.dart'; 
+
+//   this in only for programs development time testing
+part 'test.dart'; 
+bool testingPhase = true;   // set this false in production.
+String testerNight     = 'Late Night Coder ';
+String testerMorn      = 'Earlymorn Coffeeman ';
+num  testNo       = 1;
+
+
+String shipsName = 'Programmers Heaven';
+String seaCondition = '';
+String shipState    = '';
+num    shipReportNo   = 0;
+
+
+
+void main() {
+  devTest(' Main', 'TODO:  Save to daily report  ');
+  
+
+  shipState    = 'Left harbour.. ';
+  seaCondition = 'Waiting for weather forecast  ';
+  //  All should be in good order.. 
+  shipReport();
+  
+
+  shipState    = 'On The Route safely  ';
+  seaCondition = 'Normal';
+  shipReport();
+  
+    
+    // Got bad forecast.. tel ship to use it's calm the sea function.
+    shipState = 'Off course to south slicghtly   ';
+    seaCondition = 'Worsening';
+    sailorsSpell();
+    shipReport();
+   
+  stormRising();    //  and shit may happen..
+  shipReport();
+  
+}
+-------------------------------------------------------------------------------------------
+
+
+//    sea.dart  18.1.2014   hkl
+
+part of sea_line;
+
+
+
+stormRising()  { 
+  devTest('stormRising', testerMorn);  
+    
+  seaCondition = 'Worsening  ';
+  print('   Storm is rising...   ');
+  print('  BROOOOM    BROOOOMM     WHOOOSE WHOOOOSE BROOOM!!!   ');
+  print('');
+  //  sea calls ships function to ...
+  shitHappendsInTheShip();   // ou the lazy bastards forgot something..
+  
+  }
+
+
+
+calmTheSea() { 
+  devTest('CalmTheSea', testerNight);
+  
+  print('I, the Mighty Sea, to calm myself!!   lol  ');
+  print('Calm The sea only, if Captain pours his whiskey in The Sea!! ');  
+  seaCondition = 'Storm and Worsening  ';
+}
+
+----------------------------------------------------------------------------------
+
+//  ship.dart    18.1.2014  
+
+
+part of sea_line; 
+
+
+
+shipReport() {
+  devTest('shipReport', ''); 
+  
+  shipReportNo ++; 
+  print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+  print('   Sea Line ship   $shipsName  log note n:o  $shipReportNo');
+  print('Sea condition:  $seaCondition');
+  print('Ships state:    $shipState');
+  print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+  print('');
+}
+
+
+
+sailorsSpell() {
+  devTest('ships sailorsSpell', testerNight);
+  //  The old man Captain takes whiskey in his cabin, and...   
+  //  The utterance of the ancient sailors spell.
+  
+  String _seamansPrayer = '''
+         Make me alert and wise in my duties  
+         Make me faithful in the time of routine, and prompt to decide 
+         and courageous to act in any time of crisis.
+         Protect me in the dangers and the perils of the sea, and 
+         even in the storm grant that there may be peace and calm 
+         within my heart'''; 
+     
+         print(_seamansPrayer);
+        
+     calmTheSea();
+  }
+
+
+shitHappendsInTheShip() {
+  devTest('shitHappendsInTheSea',' Hey CHAP  Who dumbhead running this test??');
+  
+  //  Not us!!  It's the meany sea!!
+  print('something get broken..repairing.. but now ship is sinking');
+  shipState = 'Sinking';  
+  }
+
+-------------------------------------------------------------------------------------------
+//  test.dart   development-time-testings script for program sea_line.
+
+
+part of sea_line; 
+
+
+
+// for developer to see if parts of program works
+devTest(String unit, String whoDoneThis) {
+if (testingPhase) {  
+  String _s30 = '                              ';
+  print('$_s30  DEVELOPMENT TEST ------------------------------------------------');
+  print('$_s30  Testing $unit  Test n:o:  $testNo'); 
+  print('$_s30  Tester:  $whoDoneThis');
+  print('$_s30  dev test ended  -------------------------------------------------');
+  print('');
+  
+  testNo ++; 
+}
+}
+
+
+
+
+
+
+
+
+
